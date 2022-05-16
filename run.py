@@ -12,7 +12,15 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('project-3')
 
-sales = SHEET.worksheet('sales')
-data = sales.get_all_values()
+def get_scoops_data():
+    """
+    Get Scoops sold data sold each day from user
+    """
+    print("Please enter how many scoops sold today.")
+    print("Data should be six numbers, separated by commas.")
+    print("Example: 10,20,30,40,50,60\n")
 
-print(data)
+    data_str = input("Enter your data here: ")  
+    print(f"The data provided is {data_str}")
+
+get_scoops_data()
