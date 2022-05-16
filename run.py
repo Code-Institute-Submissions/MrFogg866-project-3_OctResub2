@@ -16,13 +16,21 @@ def get_scoops_data():
     """
     Get scoops sold data sold each day from user
     """
-    print("Please enter how many scoops sold today.")
-    print("Data should be seven numbers, separated by commas.")
-    print("Example: 10,20,30,40,50,60,70\n")
+    while True:
+        print("Please enter how many scoops sold today.")
+        print("Data should be seven numbers, separated by commas.")
+        print("Example: 10,20,30,40,50,60,70\n")
 
-    data_str = input("Enter your data here: ")  
-    scoops_data = data_str.split(",")
-    validate_data(scoops_data)
+        data_str = input("Enter your data here: ")  
+
+        scoops_data = data_str.split(",")
+        
+
+        if validate_data(scoops_data):
+            print("Data is valid!")
+            break
+        
+    return scoops_data    
 
 def validate_data(values):  
     """
@@ -39,5 +47,8 @@ def validate_data(values):
             )
     except ValueError as e:
         print(f"Invalid data: {e}, please try again.\n")
+        return False
 
-get_scoops_data()
+    return True
+
+data = get_scoops_data()
