@@ -62,7 +62,7 @@ def update_scoops_worksheet(data):
     scoops_worksheet.append_row(data)
     print("“Scoops worksheet updated successfully...\n")
 
-def calculate_surplus_data(scoops_row):
+def calculate_surplus_scoops(scoops_row):
     """
     Deduct the sold scoops from the amount of scoops available in a 10kg tub
 
@@ -73,7 +73,14 @@ def calculate_surplus_data(scoops_row):
     print("Calculating how many scoops left in stock...\n")
     stock = SHEET.worksheet("stock").get_all_values()
     stock_row = stock[-1]
-    print(stock_row)
+    
+    surplus_scoops = []
+    for stock, scoops in zip(stock_row, scoops_row):
+        surplus = int(stock) - scoops
+        surplus_scoops.append(surplus)
+
+    return surplus_scoops    
+
 
 def main():
     """
@@ -84,7 +91,8 @@ def main():
     data = get_scoops_data()
     scoops_data = [int(num) for num in data]
     update_scoops_worksheet(scoops_data)
-    calculate_surplus_data(scoops_data)
+    new_surplus_scoops = calculate_surplus_scoops(scoops_data)
+    print(new_surplus_scoops)
 
 
 print("Welcome to Ice Cream Parlor Data Automation")
