@@ -32,6 +32,7 @@ def validate_data(values):
     """ 
 
     try:
+        [int(value) for value in values]
         if len(values) != 7:
             raise ValueError(
                 f"Ooops, please enter data for all 7 items, you provided {len(values)}"
