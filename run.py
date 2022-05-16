@@ -29,7 +29,7 @@ def get_scoops_data():
         if validate_data(scoops_data):
             print("Data is valid!")
             break
-        
+
     return scoops_data    
 
 def validate_data(values):  
@@ -51,4 +51,16 @@ def validate_data(values):
 
     return True
 
+def update_scoops_worksheet(data):
+    """
+    Update scoops worksheet, add new row with the list data provided.
+    
+    """
+    print("Updating Scoop count....\n")
+    scoops_worksheet = SHEET.worksheet("scoops")
+    scoops_worksheet.append_row(data)
+    print("“Scoops worksheet updated successfully...\n")
+
 data = get_scoops_data()
+scoops_data = [int(num) for num in data]
+update_scoops_worksheet(scoops_data)
