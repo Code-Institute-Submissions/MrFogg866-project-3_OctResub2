@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+from pprint import pprint
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -61,6 +62,30 @@ def update_scoops_worksheet(data):
     scoops_worksheet.append_row(data)
     print("“Scoops worksheet updated successfully...\n")
 
-data = get_scoops_data()
-scoops_data = [int(num) for num in data]
-update_scoops_worksheet(scoops_data)
+def calculate_surplus_data(scoops_row):
+    """
+    Deduct the sold scoops from the amount of scoops available in a 10kg tub
+
+    The surplus is defined as the scoops figure is deducted from the stock
+
+    """
+
+    print("Calculating how many scoops left in stock...\n")
+    stock = SHEET.worksheet("stock").get_all_values()
+    stock_row = stock[-1]
+    print(stock_row)
+
+def main():
+    """
+    run all program functions
+    
+    """
+
+    data = get_scoops_data()
+    scoops_data = [int(num) for num in data]
+    update_scoops_worksheet(scoops_data)
+    calculate_surplus_data(scoops_data)
+
+
+print("Welcome to Ice Cream Parlor Data Automation")
+main()    
