@@ -55,7 +55,6 @@ def validate_data(values):
 def update_scoops_worksheet(data):
     """
     Update scoops worksheet, add new row with the list data provided.
-    
     """
     print("Updating Scoop count....\n")
     scoops_worksheet = SHEET.worksheet("scoops")
@@ -65,7 +64,6 @@ def update_scoops_worksheet(data):
 def update_surplus_worksheet(data):
     """
     Update surplus worksheet, add new row with the list data provided.
-    
     """
     print("Updating Scoop count....\n")
     surplus_worksheet = SHEET.worksheet("surplus")
@@ -73,16 +71,21 @@ def update_surplus_worksheet(data):
     print("“Surplus worksheet updated successfully...\n")
 
 
-
-
+def update_worksheet(data, worksheet):
+    """
+    Updates the worksheet with the data provided afer recieving  a list of integers 
+    that have been entered into a worksheet\
+    """
+    print(f"Updating {worksheet} worksheet...\n")
+    worksheet_to_update = SHEET.worksheet(worksheet)
+    worksheet_to_update.append_row(data)
+    print(f"{worksheet} worksheet updated successfully\n")
 
 
 def calculate_surplus_scoops(scoops_row):
     """
     Deduct the sold scoops from the amount of scoops available in a 10kg tub
-
     The surplus is defined as the scoops figure is deducted from the stock
-
     """
 
     print("Calculating how many scoops left in stock...\n")
@@ -100,14 +103,13 @@ def calculate_surplus_scoops(scoops_row):
 def main():
     """
     run all program functions
-    
     """
 
     data = get_scoops_data()
     scoops_data = [int(num) for num in data]
-    update_scoops_worksheet(scoops_data)
+    update_worksheet(scoops_data, "scoops")
     new_surplus_scoops = calculate_surplus_scoops(scoops_data)
-    update_surplus_worksheet(new_surplus_scoops)
+    update_worksheet(new_surplus_scoops, "surplus")
 
 
 print("Welcome to Ice Cream Parlor Data Automation")
