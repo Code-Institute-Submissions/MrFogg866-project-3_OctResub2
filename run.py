@@ -15,7 +15,7 @@ SHEET = GSPREAD_CLIENT.open('project-3')
 
 def get_scoops_data():
     """
-    Get scoops sold data sold each day from user
+    Get scoops sold data each day from user:
     """
     while True:
         print("Please enter how many scoops sold today.")
@@ -100,6 +100,23 @@ def calculate_surplus_scoops(scoops_row):
     return surplus_scoops    
 
 
+def get_popular_flavours():
+    """
+    Collects data from scoops worksheet, for the last 5 days
+    and returns the data as a list of lists
+    """
+    scoops = SHEET.worksheet("scoops")
+    # column = scoops.col_values(3)
+    # print(column)
+
+    columns = []
+    for ind in range(1, 8):
+        column = scoops.col_values(ind)
+        columns.append(column[-5:])
+
+    return columns   
+
+
 def main():
     """
     run all program functions
@@ -113,4 +130,6 @@ def main():
 
 
 print("Welcome to Ice Cream Parlor Data Automation")
-main()    
+ # main()    
+
+scoops_columns = get_popular_flavours()
