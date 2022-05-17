@@ -116,6 +116,20 @@ def get_popular_flavours():
 
     return columns   
 
+def calculate_stock_data(data):
+    """
+    Calculate the average stock for each item type, adding 10%
+    """
+    print("Calculating stock data...\n")
+    new_stock_data = []
+
+    for column in data:
+        int_column = [int(num) for num in column]
+        average = sum(int_column) / len(int_column)
+        stock_num = average * 1.1
+        new_stock_data.append(round(stock_num))
+
+    return new_stock_data
 
 def main():
     """
@@ -127,9 +141,12 @@ def main():
     update_worksheet(scoops_data, "scoops")
     new_surplus_scoops = calculate_surplus_scoops(scoops_data)
     update_worksheet(new_surplus_scoops, "surplus")
+    scoops_columns = get_popular_flavours()
+    stock_data = calculate_stock_data(scoops_columns)
+    update_worksheet(stock_data, "stock")
 
 
 print("Welcome to Ice Cream Parlor Data Automation")
- # main()    
+main()    
 
-scoops_columns = get_popular_flavours()
+
