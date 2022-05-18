@@ -121,6 +121,7 @@ def get_popular_flavours():
 
     return columns
 
+
 def calculate_stock_data(data):
     """
     Calculate the average stock for each item type, adding 10%
@@ -135,6 +136,7 @@ def calculate_stock_data(data):
         new_stock_data.append(round(stock_num))
 
     return new_stock_data
+
 
 def main():
     """
@@ -152,6 +154,6 @@ def main():
 
 
 print("Welcome to Ice Cream Parlor Data Automation")
-main()   
+main()
 
 
