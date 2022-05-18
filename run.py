@@ -111,8 +111,7 @@ def get_popular_flavours():
     and returns the data as a list of lists
     """
     scoops = SHEET.worksheet("scoops")
-    # column = scoops.col_values(3)
-    # print(column)
+
 
     columns = []
     for ind in range(1, 8):
