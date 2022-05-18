@@ -126,6 +126,7 @@ def calculate_stock_data(data):
     Calculate the average stock for each item type, adding 10%
     """
     print("Calculating stock data...\n")
+    print("Thank you for your input, have a great day")
     new_stock_data = []
 
     for column in data:
