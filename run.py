@@ -150,7 +150,7 @@ def main():
     print("      .  |  ")
     print("        .|  ")
     print("         `  ")
-    welcome_input = input("Enter y/n?:\n")
+    welcome_input = input("Would you like to Enter y/n?:\n")
     if(welcome_input == "y"):
         print("Welcome to the menu")
         print("Please enter 1 to enter data")
