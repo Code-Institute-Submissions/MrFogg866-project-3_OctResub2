@@ -151,7 +151,14 @@ def main():
     print("      .  |  ")
     print("        .|  ")
     print("         `  ")
-
+    welcome_input = input("Enter y/n?:\n")
+    if(welcome_input == "y"):
+        print("Welcome to the menu")
+        print("Please enter 1 to enter data")
+        print("Please enter 2 to see data")
+        menu=input("Enter 1 or 2")
+        if(menu==1):
+            data
 
 
     data = get_scoops_data()
