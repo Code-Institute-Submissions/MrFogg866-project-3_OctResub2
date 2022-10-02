@@ -141,17 +141,13 @@ def main():
     """
     run all program functions
     """
-    print("     _      ")
-    print("    ' `     ")
-    print("   '   '.   ")
-    print("   >_.(__)  ")
-    print(" (_,-'   |  ")
-    print("   `.    |  ")
-    print("      .  |  ")
-    print("        .|  ")
-    print("         `  ")
-    welcome_input = input(" y/n?:\n")
-    welcome_input = input("Would you like to Enter y/n?:\n")
+    print("     ()")
+    print("    (__)")
+    print("   (____)")
+    print("  (______)")
+    print(" (________)")
+    print("(__________)")
+    welcome_input = input("Enter y/n?:\n")
     if(welcome_input == "y"):
         print("Welcome to the menu")
         print("Please enter 1 to enter data")
@@ -169,9 +165,9 @@ def main():
         if(menu==2):
             print("view data functionality is going to be implemented")
     if(welcome_input=="n"):
-        print("no IceCream data for you today")   
-
+        print("no IceCream data for you today")
 
 print("Welcome to Ice Cream Parlor Data Automation")
 main()
+
 
