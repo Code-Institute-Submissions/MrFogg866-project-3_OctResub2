@@ -155,8 +155,8 @@ def main():
         print("Welcome to the menu")
         print("Please enter 1 to enter data")
         print("Please enter 2 to see data")
-        menu=int(input("Enter 1 or 2"))
-        
+        menu=int(input("Enter 1 or 2: \n"))
+
         if(menu==1):
             data = get_scoops_data()
             scoops_data = [int(num) for num in data]
