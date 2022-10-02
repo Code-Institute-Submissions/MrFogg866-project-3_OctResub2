@@ -141,15 +141,16 @@ def main():
     """
     run all program functions
     """
-    print("     _      ")
-    print("    ' `     ")
-    print("   '   '.   ")
-    print("   >_.(__)  ")
-    print(" (_,-'   |  ")
-    print("   `.    |  ")
-    print("      .  |  ")
-    print("        .|  ")
+    print("     _                                                                             ")
+    print("    ' `                                                                           ")
+    print("   '   '.   _                                                                       ")   
+    print("   >_.(__) (_)                                                                      ")
+    print(" (_,-'   |  _  ___ ___  ___ _ __ ___  __ _ _ __ ___                               ")
+    print("   `.    | | |/ __/ _ \/ __| '__/ _ \/ _` | '_ ` _ \                              ")
+    print("      .  | | | (_|  __/ (__| | |  __/ (_| | | | | | |                                   ")
+    print("        .| |_|\___\___|\___|_|  \___|\__,_|_| |_| |_|             ")
     print("         `  ")
+
     welcome_input = input("Enter y/n?:\n")
     if(welcome_input == "y"):
         print("Welcome to the menu")
@@ -175,3 +176,14 @@ print("Welcome to Ice Cream Parlor Data Automation")
 main()
 
 
+
+                                                                  
+    
+
+     _                                        
+(_)                                       
+ _  ___ ___  ___ _ __ ___  __ _ _ __ ___  
+| |/ __/ _ \/ __| '__/ _ \/ _` | '_ ` _ \ 
+| | (_|  __/ (__| | |  __/ (_| | | | | | |
+|_|\___\___|\___|_|  \___|\__,_|_| |_| |_|
+                                          
