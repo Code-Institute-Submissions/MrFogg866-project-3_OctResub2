@@ -166,7 +166,7 @@ def main():
             scoops_columns = get_popular_flavours()
             stock_data = calculate_stock_data(scoops_columns)
             update_worksheet(stock_data, "stock")
-    if(welcome_input="n"):
+    if(welcome_input=="n"):
         print("no IceCream data for you today")        
 
 
