@@ -150,24 +150,26 @@ def main():
     print("      .  |  ")
     print("        .|  ")
     print("         `  ")
+    welcome_input = input(" y/n?:\n")
     welcome_input = input("Would you like to Enter y/n?:\n")
     if(welcome_input == "y"):
         print("Welcome to the menu")
         print("Please enter 1 to enter data")
         print("Please enter 2 to see data")
-        menu=input("Enter 1 or 2")
+        menu=int(input("Enter 1 or 2"))
         if(menu==1):
             data = get_scoops_data()
-            update_worksheet(new_surplus_scoops, "surplus")
             scoops_data = [int(num) for num in data]
             update_worksheet(scoops_data, "scoops")
             new_surplus_scoops = calculate_surplus_scoops(scoops_data)
-        if(menu==2):
+            update_worksheet(new_surplus_scoops, "surplus")
             scoops_columns = get_popular_flavours()
             stock_data = calculate_stock_data(scoops_columns)
             update_worksheet(stock_data, "stock")
+        if(menu==2):
+            print("view data functionality is going to be implemented")
     if(welcome_input=="n"):
-        print("no IceCream data for you today")        
+        print("no IceCream data for you today")   
 
 
 print("Welcome to Ice Cream Parlor Data Automation")
