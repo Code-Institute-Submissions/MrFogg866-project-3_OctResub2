@@ -142,6 +142,17 @@ def main():
     """
     run all program functions
     """
+    print("     _      ")
+    print("    ' `     ")
+    print("   '   '.   ")
+    print("   >_.(__)  ")
+    print(" (_,-'   |  ")
+    print("   `.    |  ")
+    print("      .  |  ")
+    print("        .|  ")
+    print("         `  ")
+
+
 
     data = get_scoops_data()
     scoops_data = [int(num) for num in data]
