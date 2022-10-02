@@ -141,18 +141,22 @@ def main():
     """
     run all program functions
     """
-    print("     ()")
-    print("    (__)")
-    print("   (____)")
-    print("  (______)")
-    print(" (________)")
-    print("(__________)")
+    print("     _      ")
+    print("    ' `     ")
+    print("   '   '.   ")
+    print("   >_.(__)  ")
+    print(" (_,-'   |  ")
+    print("   `.    |  ")
+    print("      .  |  ")
+    print("        .|  ")
+    print("         `  ")
     welcome_input = input("Enter y/n?:\n")
     if(welcome_input == "y"):
         print("Welcome to the menu")
         print("Please enter 1 to enter data")
         print("Please enter 2 to see data")
         menu=int(input("Enter 1 or 2"))
+        
         if(menu==1):
             data = get_scoops_data()
             scoops_data = [int(num) for num in data]
