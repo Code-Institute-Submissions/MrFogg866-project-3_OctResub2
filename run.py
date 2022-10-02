@@ -141,30 +141,35 @@ def main():
     """
     run all program functions
     """
-    print("     ()")
-    print("    (__)")
-    print("   (____)")
-    print("  (______)")
-    print(" (________)")
-    print("(__________)")
+    print("     _      ")
+    print("    ' `     ")
+    print("   '   '.   ")
+    print("   >_.(__)  ")
+    print(" (_,-'   |  ")
+    print("   `.    |  ")
+    print("      .  |  ")
+    print("        .|  ")
+    print("         `  ")
     welcome_input = input("Enter y/n?:\n")
-    if welcome_input == "y":
+    if(welcome_input == "y"):
         print("Welcome to the menu")
         print("Please enter 1 to enter data")
         print("Please enter 2 to see data")
-        menu=int(input("Enter 1 or 2"))
-        if menu==1:
+        menu=input("Enter 1 or 2")
+        if(menu==1):
             data = get_scoops_data()
             update_worksheet(new_surplus_scoops, "surplus")
             scoops_data = [int(num) for num in data]
             update_worksheet(scoops_data, "scoops")
             new_surplus_scoops = calculate_surplus_scoops(scoops_data)
-        if menu==2:
+        if(menu==2):
             scoops_columns = get_popular_flavours()
             stock_data = calculate_stock_data(scoops_columns)
             update_worksheet(stock_data, "stock")
-    if welcome_input=="n":
-        print("no IceCream data for you today")
+    if(welcome_input="n"):
+        print("no IceCream data for you today")        
+
 
 print("Welcome to Ice Cream Parlor Data Automation")
 main()
+
