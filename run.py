@@ -144,14 +144,14 @@ def weekly_scoops():
         column.append(col)
     for i in range(len(column)-1):
         total=0
-        print()
-        for k in range(len(column[i])-1):
-            if k==0 :
-                continue
-            elif k>0 :
-                total=total+int(column[i][k])
-            elif k==len(column[i])-1 :
-                print(f"{column[i][k]} ={total}\n")
+        print(column[i])
+        # for k in range(len(column[i])-1):
+            # if k==0 :
+                # continue
+            # elif k>0 :
+                # total=total+int(column[i][k])
+            # elif k==len(column[i])-1 :
+                # print(f"{column[i][k]} ={total}\n")
 
 def main():
     """
