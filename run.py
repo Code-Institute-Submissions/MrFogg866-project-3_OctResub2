@@ -144,7 +144,7 @@ def weekly_scoops():
         column = w_scoops.col_values(ind)
     for col in column:
         int_column = [int(num) for num in col]
-        total = total + int_column.value
+        total = total + int_column
         scoop_values.append(round(total))
 
     return scoop_values
