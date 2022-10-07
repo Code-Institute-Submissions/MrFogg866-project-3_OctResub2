@@ -138,7 +138,7 @@ def calculate_stock_data(data):
 
 def weekly_scoops():
     w_scoops = SHEET.worksheet("scoops").get_all_values()
-    return w_scoops.
+    return w_scoops
 
 def main():
     """
