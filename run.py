@@ -145,13 +145,13 @@ def weekly_scoops():
     for i in range(len(column)-1):
         total=0
         print()
-        for k in range(w_scoops.row_count-1):
+        for k in range(len(column[i])-1):
             if k==0 :
                 continue
             elif k>0 :
-                total=total+i[k]
-            elif k==len(i)-1 :
-                print(f"{i[k]} ={total}\n")
+                total=total+column[i][k]
+            elif k==len(column[i])-1 :
+                print(f"{column[i][k]} ={total}\n")
 
 def main():
     """
@@ -187,3 +187,4 @@ def main():
 
 print("Welcome to Ice Cream Parlor Data Automation")
 main()
+
