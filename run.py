@@ -142,12 +142,16 @@ def weekly_scoops():
     scoop_values=[]
     for ind in range(1, 8):
         column = w_scoops.col_values(ind)
-    for col in column:
-        int_column = [int(num) for num in col]
-        total = total + int_column
-        scoop_values.append(round(total))
 
-    return scoop_values
+    for i in range(len(column)-1):
+        total=0
+        for k in range(len(i)-1):
+            if(k==0):
+                continue
+            elif(k>0):
+                total=total+i[k]
+            elif(k==len(i)-1):
+                print(f"{i[k]} ={total}\n")
 
 def main():
     """
@@ -176,8 +180,7 @@ def main():
             update_worksheet(stock_data, "stock")
         if menu==2:
             print("view data functionality is going to be implemented")
-            scoops=weekly_scoops()
-            print(scoops)
+            weekly_scoops()
     if welcome_input == "n":
         print("no IceCream data for you today")
         calculate_stock_data(scoops_columns)
