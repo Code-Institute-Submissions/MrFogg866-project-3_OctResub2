@@ -149,7 +149,7 @@ def weekly_scoops():
             if k==0 :
                 continue
             elif k>0 :
-                print(f"{type(column[i][2])} ={total} k={k}\n")
+                print(f"{column[i][2]} ={total} i={i}k={k}\n")
                 # total=total+int(column[i][k])
             # elif k==len(column[i])-1 :
                 # print(f"{column[i][0]} ={total}\n")
