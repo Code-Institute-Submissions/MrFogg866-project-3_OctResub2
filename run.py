@@ -144,7 +144,8 @@ def weekly_scoops():
         column.append(col)
     for i in range(len(column)-1):
         total=0
-        for k in range(len(i)-1):
+        print()
+        for k in range(w_scoops.row_count-1):
             if k==0 :
                 continue
             elif k>0 :
