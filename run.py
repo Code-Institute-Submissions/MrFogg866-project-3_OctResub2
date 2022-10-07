@@ -136,29 +136,27 @@ def calculate_stock_data(data):
 
     return new_stock_data
 
+def weekly_scoops():
+    w_scoops = SHEET.worksheet("scoops")
+    return w_scoops
 
 def main():
     """
     run all program functions
     """
-    print("     _                                                ")
-    print("    ' `                                               ")
-    print("   '   '.   _                                         ")   
-    print("   >_.(__) (_)                                        ")
-    print(" (_,-'   |  _  ___ ___  ___ _ __ ___  __ _ _ __ ___   ")
-    print("   `.    | | |/ __/ _ \/ __| '__/ _ \/ _` | '_ ` _ \  ")
-    print("      .  | | | (_|  __/ (__| | |  __/ (_| | | | | | | ")
-    print("        .| |_|\___\___|\___|_|  \___|\__,_|_| |_| |_| ")
-    print("         `                                            ")
-
+    print("     ()")
+    print("    (__)")
+    print("   (____)")
+    print("  (______)")
+    print(" (________)")
+    print("(__________)")
     welcome_input = input("Enter y/n?:\n")
-    if(welcome_input == "y"):
+    if welcome_input == "y":
         print("Welcome to the menu")
         print("Please enter 1 to enter data")
         print("Please enter 2 to see data")
-        menu=int(input("Enter 1 or 2:\n"))
-
-        if(menu==1):
+        menu=int(input("Enter 1 or 2"))
+        if menu==1:
             data = get_scoops_data()
             scoops_data = [int(num) for num in data]
             update_worksheet(scoops_data, "scoops")
@@ -167,10 +165,14 @@ def main():
             scoops_columns = get_popular_flavours()
             stock_data = calculate_stock_data(scoops_columns)
             update_worksheet(stock_data, "stock")
-        if(menu==2):
+        if menu==2:
             print("view data functionality is going to be implemented")
-    if(welcome_input=="n"):
+            scoops=weekly_scoops()
+            print(scoops)
+    if welcome_input == "n":
         print("no IceCream data for you today")
+        calculate_stock_data(scoops_columns)
 
 print("Welcome to Ice Cream Parlor Data Automation")
 main()
+
