@@ -149,7 +149,7 @@ def weekly_scoops():
             if k==0 :
                 continue
             elif k>0 :
-                total=total+column[i][k]
+                total=total+int(column[i][k])
             elif k==len(column[i])-1 :
                 print(f"{column[i][k]} ={total}\n")
 
@@ -187,4 +187,5 @@ def main():
 
 print("Welcome to Ice Cream Parlor Data Automation")
 main()
+
 
