@@ -140,8 +140,9 @@ def weekly_scoops():
     w_scoops = SHEET.worksheet("scoops").get_all_values()
     column = []
     scoop_values=[]
-    # for ind in range(1, 8):
-    #     column = w_scoops.col_values(ind)
+    for ind in range(1, 8):
+        col = w_scoops.col_values(ind)
+        column.append(col)
     print(column)
     # for i in range(len(column)-1):
     #     total=0
@@ -187,5 +188,3 @@ def main():
 
 print("Welcome to Ice Cream Parlor Data Automation")
 main()
-
-
