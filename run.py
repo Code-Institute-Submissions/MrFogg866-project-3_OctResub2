@@ -138,7 +138,16 @@ def calculate_stock_data(data):
 
 def weekly_scoops():
     w_scoops = SHEET.worksheet("scoops").get_all_values()
-    return w_scoops
+    column = []
+    scoop_values=[]
+    for ind in range(1, 8):
+        column = w_scoops.col_values(ind)
+    for col in column:
+        int_column = [int(num) for num in col]
+        total = total + int_column.value
+        scoop_values.append(round(total))
+
+    return scoop_values
 
 def main():
     """
@@ -167,7 +176,7 @@ def main():
             update_worksheet(stock_data, "stock")
         if menu==2:
             print("view data functionality is going to be implemented")
-            scoops=get_popular_flavours()
+            scoops=weekly_scoops()
             print(scoops)
     if welcome_input == "n":
         print("no IceCream data for you today")
@@ -175,3 +184,5 @@ def main():
 
 print("Welcome to Ice Cream Parlor Data Automation")
 main()
+
+
