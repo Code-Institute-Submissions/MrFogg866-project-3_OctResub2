@@ -144,14 +144,15 @@ def weekly_scoops():
         column.append(col)
     for i in range(len(column)-1):
         total=0
-        print(type(column[i]))
-        # for k in range(len(column[i])-1):
-            # if k==0 :
-                # continue
-            # elif k>0 :
+        # print(type(column[i]))
+        for k in range(len(column[i])-1):
+            if k==0 :
+                continue
+            elif k>0 :
+                print(f"{column[i][0]} ={total}\n")
                 # total=total+int(column[i][k])
             # elif k==len(column[i])-1 :
-                # print(f"{column[i][k]} ={total}\n")
+                # print(f"{column[i][0]} ={total}\n")
 
 def main():
     """
@@ -187,6 +188,7 @@ def main():
 
 print("Welcome to Ice Cream Parlor Data Automation")
 main()
+
 
 
 
