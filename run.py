@@ -144,7 +144,7 @@ def weekly_scoops():
         column.append(col)
     for i in range(len(column)-1):
         total=0
-        print(column[i])
+        print(type(column[i]))
         # for k in range(len(column[i])-1):
             # if k==0 :
                 # continue
@@ -187,5 +187,6 @@ def main():
 
 print("Welcome to Ice Cream Parlor Data Automation")
 main()
+
 
 
