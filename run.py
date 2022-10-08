@@ -1,8 +1,8 @@
 import gspread
-import os
+
 from google.oauth2.service_account import Credentials
 
-os. system('color A')
+
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
