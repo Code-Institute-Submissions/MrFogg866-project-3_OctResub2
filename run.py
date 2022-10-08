@@ -12,7 +12,7 @@ SCOPE = [
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('Copy of project-3')
+SHEET = GSPREAD_CLIENT.open('project-3')
 
 
 def get_scoops_data():
