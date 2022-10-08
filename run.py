@@ -1,7 +1,8 @@
 import gspread
+import os
 from google.oauth2.service_account import Credentials
 
-
+os. system('color A')
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -11,7 +12,7 @@ SCOPE = [
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('project-3')
+SHEET = GSPREAD_CLIENT.open('Copy of project-3')
 
 
 def get_scoops_data():
@@ -139,22 +140,46 @@ def calculate_stock_data(data):
 def weekly_scoops():
     w_scoops = SHEET.worksheet("scoops")
     column = []
+    print("~~~~~~~~~~~Weekly Scoop~~~~~~~~~\n")
     for ind in range(1, 8):
         col = w_scoops.col_values(ind)
-        column.append(col)
-    for i in range(len(column)-1):
+        column.append(col[-7:])
+    for i in range(len(column)+0):
         total=0
         # print(type(column[i]))
-        for k in range(len(column[i])-1):
+        for k in range(len(column[i])+0):
             if k==0 :
                 continue
             elif k>0 :
                 # print(f"{column[i][2]} ={total} i={i}k={k}\n")
                 total=total+int(column[i][k])
-                print(f"total ={total} \n")
-            elif k==len(column[i])-1 :
-                print(f"{column[i][0]} ={total}\n")
+                # print(f"total ={total} \n")
+            
+        print(f"{total} {column[i][0]}\n")
+    print("########### Weekly Scoop ###########\n")
 
+def data_in_stock():
+     w_scoops = SHEET.worksheet("stock")
+     column = []
+     print("~~~~~~~~~~~ Stock ~~~~~~~~~\n")
+     for ind in range(1, 8):
+        col = w_scoops.col_values(ind)
+        column.append(col)
+     for i in range(len(column)+0):
+        total=0
+        # print(type(column[i]))
+        for k in range(len(column[i])+0):
+            if k==0 :
+                continue
+            elif k>0 :
+                # print(f"{column[i][2]} ={total} i={i}k={k}\n")
+                total=total+int(column[i][k])
+                # print(f"total ={total} \n")
+            
+        print(f"{total} {column[i][0]}\n")
+        if total<36:
+            print(f' Your stock is running low please oder more {column[i][0]}\n')
+     print("########### Stock ###########n")
 def main():
     """
     run all program functions
@@ -170,7 +195,7 @@ def main():
         print("Welcome to the menu")
         print("Please enter 1 to enter data")
         print("Please enter 2 to see data")
-        menu=int(input("Enter 1 or 2"))
+        menu=int(input("Enter 1 or 2 \n"))
         if menu==1:
             data = get_scoops_data()
             scoops_data = [int(num) for num in data]
@@ -180,15 +205,25 @@ def main():
             scoops_columns = get_popular_flavours()
             stock_data = calculate_stock_data(scoops_columns)
             update_worksheet(stock_data, "stock")
-        if menu==2:
-            print("view data functionality is going to be implemented")
-            weekly_scoops()
-    if welcome_input == "n":
+        elif menu==2:
+            print("Please enter 1 to total weekly scop")
+            print("Please enter 2 to Stock")
+            view=int(input("Enter 1 or 2 \n"))
+            if view == 1:
+                weekly_scoops()
+            elif view == 2:
+                data_in_stock()
+            else:
+                print("Incorrect input") 
+        else:
+           print("Incorrect input") 
+    elif welcome_input == "n":
         print("no IceCream data for you today")
         calculate_stock_data(scoops_columns)
+    else :
+        print("Incorrect input") 
 
 print("Welcome to Ice Cream Parlor Data Automation")
 main()
-
 
 
