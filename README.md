@@ -7,7 +7,7 @@ Welcome to the ice cream parlor data automation, this will allow the user to inp
 Each tub is 10 kg and each scoop is 55 grams meaning that you can get 181 scoops out of each tub of ice cream.
 
 
-![screenshot](assets/images/screenshts.png)
+![screenshot](assets/images/ami.png)
 
 
 
@@ -43,15 +43,15 @@ Each tub is 10 kg and each scoop is 55 grams meaning that you can get 181 scoops
 
 After you input the correct data you will see numerous messages confirming the following:
 
-![correct-data-entry](assets/images/correct-data-entry.png)
+![final](assets/images/final.png)
 
 If you enter the data incorrectly for example not enough numbers you will see this message:
 
-![incorrect-data-entry](assets/images/incorrect-data-entry.png)
+![incorrect](assets/images/incorrect.png)
 
 If you enter the data incorrectly for example: no numbers you will see this message:
 
-![incorrect-data-entry2](assets/images/incorrect-data-entry2.png)
+![numbers](assets/images/numbers.png)
 
 The user will recieve a warning message when stock is running low, 36 scoops or less.
 
