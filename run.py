@@ -178,17 +178,21 @@ def main():
     """
     run all program functions
     """
-    print(Fore.GREEN+"     ()")
-    print(Fore.GREEN+"    (__)")
-    print(Fore.GREEN+"   (____)")
-    print(Fore.GREEN+"  (______)")
-    print(Fore.GREEN+" (________)")
-    print(Fore.GREEN+"(__________)")
-    welcome_input = input(Fore.GREEN+"Enter y/n?:\n")
+    print(Fore.GREEN+"     _                                                ")
+    print(Fore.GREEN+"    ' `                                               ")
+    print(Fore.GREEN+"   '   '.   _                                         ")   
+    print(Fore.GREEN+"   >_.(__) (_)                                        ")
+    print(Fore.GREEN+" (_,-'   |  _  ___ ___  ___ _ __ ___  __ _ _ __ ___   ")
+    print(Fore.GREEN+"   `.    | | |/ __/ _ \/ __| '__/ _ \/ _` | '_ ` _ \  ")
+    print(Fore.GREEN+"      .  | | | (_|  __/ (__| | |  __/ (_| | | | | | | ")
+    print(Fore.GREEN+"        .| |_|\___\___|\___|_|  \___|\__,_|_| |_| |_| ")
+    print(Fore.GREEN+"         `                                            ")
+
+    welcome_input = input(Fore.GREEN+"Enter Ice Cream Parlour y/n?:\n")
     if welcome_input == "y":
         print(Fore.GREEN+"Welcome to the menu")
-        print(Fore.GREEN+"Please enter 1 to enter data")
-        print(Fore.GREEN+"Please enter 2 to see data")
+        print(Fore.GREEN+"Please enter 1 to enter Ice Cream data")
+        print(Fore.GREEN+"Please enter 2 to see Ice Cream data")
         menu=int(input(Fore.GREEN+"Enter 1 or 2 \n"))
         if menu==1:
             data = get_scoops_data()
@@ -200,8 +204,8 @@ def main():
             stock_data = calculate_stock_data(scoops_columns,scoops_data)
             update_worksheet(stock_data, "stock")
         elif menu==2:
-            print(Fore.GREEN+"Please enter 1 to total weekly scop")
-            print(Fore.GREEN+"Please enter 2 to Stock")
+            print(Fore.GREEN+"Please enter 1 to see weekly scoops total")
+            print(Fore.GREEN+"Please enter 2 to remaining Stock")
             view=int(input(Fore.GREEN+"Enter 1 or 2 \n"))
             if view == 1:
                 weekly_scoops()
@@ -209,7 +213,7 @@ def main():
                 data_in_stock()
             else:
                 print(Fore.GREEN+"Incorrect input") 
-        else:
+        else:th
            print(Fore.GREEN+"Incorrect input") 
     elif welcome_input == "n":
         print(Fore.GREEN+"no IceCream data for you today")
