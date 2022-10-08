@@ -213,7 +213,7 @@ def main():
                 data_in_stock()
             else:
                 print(Fore.GREEN+"Incorrect input") 
-        else:th
+        else:
            print(Fore.GREEN+"Incorrect input") 
     elif welcome_input == "n":
         print(Fore.GREEN+"no IceCream data for you today")
