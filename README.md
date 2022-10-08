@@ -101,11 +101,11 @@ To Deploy this project i used Heroku, the steps i used are as follows:
 
 - I have enterered numbers, letters and words in the correct and wrong lengths into the deployed version on Heroku  to recieve the following results:
 
-![manual-test1](assets/images/manual-test1.png)
+![letters](assets/images/letters.png)
 
-![manual-test2](assets/images/manual-test2.png)
+![word](assets/images/word.png)
 
-![manual-test3](assets/images/manual-test3.png)
+![low-number](assets/images/low-number.png)
 
 
 
