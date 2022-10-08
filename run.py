@@ -1,9 +1,9 @@
-from hashlib import new
 import gspread
-# import os
+from hashlib import new
+from colorama import Fore, Back, Style
+
 from google.oauth2.service_account import Credentials
 
-# os. system('color A')
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -21,16 +21,16 @@ def get_scoops_data():
     Get scoops sold data each day from user:
     """
     while True:
-        print("Please enter how many scoops sold today.")
-        print("Data should be seven numbers, separated by commas.")
-        print("Example: 10,20,30,40,50,60,70\n")
+        print(Fore.GREEN+"Please enter how many scoops sold today.")
+        print(Fore.GREEN+"Data should be seven numbers, separated by commas.")
+        print(Fore.GREEN+"Example: 10,20,30,40,50,60,70\n")
 
-        data_str = input("Enter How many scoops sold today here:\n")
+        data_str = input(Fore.GREEN+"Enter How many scoops sold today here:\n")
 
         scoops_data = data_str.split(",")
 
         if validate_data(scoops_data):
-            print("Data is valid!")
+            print(Fore.GREEN+"Data is valid!")
             break
 
     return scoops_data
@@ -50,7 +50,7 @@ def validate_data(values):
                 "Ooops, please enter data for all 7 items,"
             )
     except ValueError as e:
-        print(f"Invalid data: {e}, please try again.\n")
+        print(Fore.GREEN+f"Invalid data: {e}, please try again.\n")
         return False
 
     return True
@@ -60,20 +60,20 @@ def update_scoops_worksheet(data):
     """
     Update scoops worksheet, add new row with the list data provided.
     """
-    print("Updating Scoop count....\n")
+    print(Fore.GREEN+"Updating Scoop count....\n")
     scoops_worksheet = SHEET.worksheet("scoops")
     scoops_worksheet.append_row(data)
-    print("“Scoops worksheet updated successfully...\n")
+    print(Fore.GREEN+"Scoops worksheet updated successfully...\n")
 
 
 def update_surplus_worksheet(data):
     """
     Update surplus worksheet, add new row with the list data provided.
     """
-    print("Updating Scoop count....\n")
+    print(Fore.GREEN+"Updating Scoop count....\n")
     surplus_worksheet = SHEET.worksheet("surplus")
     surplus_worksheet.append_row(data)
-    print("“Surplus worksheet updated successfully...\n")
+    print(Fore.GREEN+"Surplus worksheet updated successfully...\n")
 
 
 def update_worksheet(data, worksheet):
@@ -82,10 +82,10 @@ def update_worksheet(data, worksheet):
     after recieving  a list of integers
     that have been entered into a worksheet\
     """
-    print(f"Updating {worksheet} worksheet...\n")
+    print(Fore.GREEN+f"Updating {worksheet} worksheet...\n")
     worksheet_to_update = SHEET.worksheet(worksheet)
     worksheet_to_update.append_row(data)
-    print(f"{worksheet} worksheet updated successfully\n")
+    print(Fore.GREEN+f"{worksheet} worksheet updated successfully\n")
 
 
 def calculate_surplus_scoops(scoops_row):
@@ -94,7 +94,7 @@ def calculate_surplus_scoops(scoops_row):
     The surplus is defined as the scoops figure is deducted from the stock
     """
 
-    print("Calculating how many scoops left in stock...\n")
+    print(Fore.GREEN+"Calculating how many scoops left in stock...\n")
     stock = SHEET.worksheet("stock").get_all_values()
     stock_row = stock[-1]
 
@@ -126,8 +126,8 @@ def calculate_stock_data(data,scoops_data):
     """
     Calculate the average stock for each item type, adding 10%
     """
-    print("Calculating stock data...\n")
-    print("Thank you for your input, have a great day")
+    print(Fore.GREEN+"Calculating stock data...\n")
+    print(Fore.GREEN+"Thank you for your input, have a great day")
     new_stock_data = []
     for j in range(len(data)+0):
         new_stock_data.append(int(data[j][0])-int(scoops_data[j]))
@@ -136,7 +136,7 @@ def calculate_stock_data(data,scoops_data):
 def weekly_scoops():
     w_scoops = SHEET.worksheet("scoops")
     column = []
-    print("~~~~~~~~~~~Weekly Scoop~~~~~~~~~\n")
+    print(Fore.GREEN+"~~~~~~~~~~~Weekly Scoop~~~~~~~~~\n")
     for ind in range(1, 8):
         col = w_scoops.col_values(ind)
         column.append(col)
@@ -153,12 +153,12 @@ def weekly_scoops():
                 # print(f"total ={total} \n")
             
         print(f"{total} {column[i][0]}\n")
-    print("########### Weekly Scoop ###########\n")
+    print(Fore.GREEN+"########### Weekly Scoop ###########\n")
 
 def data_in_stock():
      w_scoops = SHEET.worksheet("stock")
      column = []
-     print("~~~~~~~~~~~ Stock ~~~~~~~~~\n")
+     print(Fore.GREEN+"~~~~~~~~~~~ Stock ~~~~~~~~~\n")
      for ind in range(1, 8):
         col = w_scoops.col_values(ind)
         column.append(col)
@@ -172,24 +172,24 @@ def data_in_stock():
                 continue            
         print(f"{total} {column[i][0]}\n")
         if total<36:
-            print(f' Your stock is running low please oder more {column[i][0]}\n')
-     print("########### Stock ###########\n")
+            print(Fore.GREEN+f' Your stock is running low please oder more {column[i][0]}\n')
+     print(Fore.GREEN+"########### Stock ###########\n")
 def main():
     """
     run all program functions
     """
-    print("     ()")
-    print("    (__)")
-    print("   (____)")
-    print("  (______)")
-    print(" (________)")
-    print("(__________)")
-    welcome_input = input("Enter y/n?:\n")
+    print(Fore.GREEN+"     ()")
+    print(Fore.GREEN+"    (__)")
+    print(Fore.GREEN+"   (____)")
+    print(Fore.GREEN+"  (______)")
+    print(Fore.GREEN+" (________)")
+    print(Fore.GREEN+"(__________)")
+    welcome_input = input(Fore.GREEN+"Enter y/n?:\n")
     if welcome_input == "y":
-        print("Welcome to the menu")
-        print("Please enter 1 to enter data")
-        print("Please enter 2 to see data")
-        menu=int(input("Enter 1 or 2 \n"))
+        print(Fore.GREEN+"Welcome to the menu")
+        print(Fore.GREEN+"Please enter 1 to enter data")
+        print(Fore.GREEN+"Please enter 2 to see data")
+        menu=int(input(Fore.GREEN+"Enter 1 or 2 \n"))
         if menu==1:
             data = get_scoops_data()
             scoops_data = [int(num) for num in data]
@@ -197,25 +197,24 @@ def main():
             new_surplus_scoops = calculate_surplus_scoops(scoops_data)
             update_worksheet(new_surplus_scoops, "surplus")
             scoops_columns = get_current_stock()
-            print(f"~~~~~~~~~~~~~~~{scoops_columns}")
             stock_data = calculate_stock_data(scoops_columns,scoops_data)
             update_worksheet(stock_data, "stock")
         elif menu==2:
-            print("Please enter 1 to total weekly scop")
-            print("Please enter 2 to Stock")
-            view=int(input("Enter 1 or 2 \n"))
+            print(Fore.GREEN+"Please enter 1 to total weekly scop")
+            print(Fore.GREEN+"Please enter 2 to Stock")
+            view=int(input(Fore.GREEN+"Enter 1 or 2 \n"))
             if view == 1:
                 weekly_scoops()
             elif view == 2:
                 data_in_stock()
             else:
-                print("Incorrect input") 
+                print(Fore.GREEN+"Incorrect input") 
         else:
-           print("Incorrect input") 
+           print(Fore.GREEN+"Incorrect input") 
     elif welcome_input == "n":
-        print("no IceCream data for you today")
+        print(Fore.GREEN+"no IceCream data for you today")
     else :
-        print("Incorrect input") 
+        print(Fore.GREEN+"Incorrect input") 
 
-print("Welcome to Ice Cream Parlor Data Automation")
+print(Fore.GREEN+"Welcome to Ice Cream Parlor Data Automation")
 main()
